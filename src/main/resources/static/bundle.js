@@ -65,6 +65,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	/* Point d'entrée front */
 	(0, _reactDom.render)(_react2.default.createElement(_employeetable2.default, null), document.getElementById('app'));
 
 /***/ },
@@ -22015,7 +22016,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -22040,83 +22041,86 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	/* classe qui représente un ensemble d'employés */
 	var EmployeeTable = function (_React$Component) {
-	  _inherits(EmployeeTable, _React$Component);
+	    _inherits(EmployeeTable, _React$Component);
 	
-	  function EmployeeTable() {
-	    _classCallCheck(this, EmployeeTable);
+	    function EmployeeTable() {
+	        _classCallCheck(this, EmployeeTable);
 	
-	    var _this = _possibleConstructorReturn(this, (EmployeeTable.__proto__ || Object.getPrototypeOf(EmployeeTable)).call(this));
+	        var _this = _possibleConstructorReturn(this, (EmployeeTable.__proto__ || Object.getPrototypeOf(EmployeeTable)).call(this));
 	
-	    _this.state = { employees: [] };
-	    return _this;
-	  }
-	
-	  _createClass(EmployeeTable, [{
-	    key: 'loadEmployeesFromServer',
-	    value: function loadEmployeesFromServer() {
-	      var self = this;
-	      _jquery2.default.ajax({
-	        url: "http://localhost:8080/api/employees"
-	      }).then(function (data) {
-	        self.setState({ employees: data._embedded.employees });
-	      });
+	        _this.state = {
+	            employees: []
+	        };
+	        return _this;
 	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.loadEmployeesFromServer();
-	      console.log("componentDidMount done");
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
 	
-	      var rows = [];
-	      this.state.employees.forEach(function (employee) {
-	        rows.push(_react2.default.createElement(_employee2.default, { employee: employee, key: employee.id }));
-	      });
+	    /* appelé par componentDidMount : charge les employés en ajax */
 	
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'container' },
-	        _react2.default.createElement(
-	          'table',
-	          { className: 'table table-striped' },
-	          _react2.default.createElement(
-	            'thead',
-	            null,
-	            _react2.default.createElement(
-	              'tr',
-	              null,
-	              _react2.default.createElement(
-	                'th',
-	                null,
-	                'Name'
-	              ),
-	              _react2.default.createElement(
-	                'th',
-	                null,
-	                'Age'
-	              ),
-	              _react2.default.createElement(
-	                'th',
-	                null,
-	                'Years'
-	              )
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'tbody',
-	            null,
-	            rows
-	          )
-	        )
-	      );
-	    }
-	  }]);
 	
-	  return EmployeeTable;
+	    _createClass(EmployeeTable, [{
+	        key: 'loadEmployeesFromServer',
+	        value: function loadEmployeesFromServer() {
+	            var self = this;
+	            _jquery2.default.ajax({ url: "http://localhost:8080/api/employees" }).then(function (data) {
+	                self.setState({ employees: data._embedded.employees });
+	            });
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this.loadEmployeesFromServer();
+	            console.log("componentDidMount done");
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var rows = [];
+	            this.state.employees.forEach(function (employee) {
+	                rows.push(_react2.default.createElement(_employee2.default, { employee: employee, key: employee.id }));
+	            });
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'container' },
+	                _react2.default.createElement(
+	                    'table',
+	                    { className: 'table table-striped' },
+	                    _react2.default.createElement(
+	                        'thead',
+	                        null,
+	                        _react2.default.createElement(
+	                            'tr',
+	                            null,
+	                            _react2.default.createElement(
+	                                'th',
+	                                null,
+	                                'Name'
+	                            ),
+	                            _react2.default.createElement(
+	                                'th',
+	                                null,
+	                                'Age'
+	                            ),
+	                            _react2.default.createElement(
+	                                'th',
+	                                null,
+	                                'Years'
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'tbody',
+	                        null,
+	                        rows
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return EmployeeTable;
 	}(_react2.default.Component);
 	
 	exports.default = EmployeeTable;
@@ -22131,7 +22135,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -22148,42 +22152,43 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	/* classe qui affiche un employé */
 	var Employee = function (_React$Component) {
-	  _inherits(Employee, _React$Component);
+	    _inherits(Employee, _React$Component);
 	
-	  function Employee() {
-	    _classCallCheck(this, Employee);
+	    function Employee() {
+	        _classCallCheck(this, Employee);
 	
-	    return _possibleConstructorReturn(this, (Employee.__proto__ || Object.getPrototypeOf(Employee)).apply(this, arguments));
-	  }
-	
-	  _createClass(Employee, [{
-	    key: 'render',
-	    value: function render() {
-	
-	      return _react2.default.createElement(
-	        'tr',
-	        null,
-	        _react2.default.createElement(
-	          'td',
-	          null,
-	          this.props.employee.name
-	        ),
-	        _react2.default.createElement(
-	          'td',
-	          null,
-	          this.props.employee.age
-	        ),
-	        _react2.default.createElement(
-	          'td',
-	          null,
-	          this.props.employee.years
-	        )
-	      );
+	        return _possibleConstructorReturn(this, (Employee.__proto__ || Object.getPrototypeOf(Employee)).apply(this, arguments));
 	    }
-	  }]);
 	
-	  return Employee;
+	    _createClass(Employee, [{
+	        key: 'render',
+	        value: function render() {
+	
+	            return _react2.default.createElement(
+	                'tr',
+	                null,
+	                _react2.default.createElement(
+	                    'td',
+	                    null,
+	                    this.props.employee.name
+	                ),
+	                _react2.default.createElement(
+	                    'td',
+	                    null,
+	                    this.props.employee.age
+	                ),
+	                _react2.default.createElement(
+	                    'td',
+	                    null,
+	                    this.props.employee.years
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Employee;
 	}(_react2.default.Component);
 	
 	exports.default = Employee;

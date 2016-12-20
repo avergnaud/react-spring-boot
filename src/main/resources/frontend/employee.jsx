@@ -1,14 +1,15 @@
 import React from 'react';
 
+/* classe qui affiche un employé */
 export default class Employee extends React.Component {
-  render() {
+    render() {
 
-    return (
-      <tr>
-        <td>{this.props.employee.name}</td>
-        <td>{this.props.employee.age}</td>
-        <td>{this.props.employee.years}</td>
-      </tr>
-    );
-  }
+        return (
+            <tr>
+                <td>{this.props.employee.name}</td>
+                <td>{this.props.employee.age}</td>
+                <td>{this.props.employee.years}</td>
+            </tr>
+        );
+    }
 }
