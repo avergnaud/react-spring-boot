@@ -6,9 +6,8 @@ export default class Employee extends React.Component {
 
         return (
             <tr>
-                <td>{this.props.employee.name}</td>
-                <td>{this.props.employee.age}</td>
-                <td>{this.props.employee.years}</td>
+                <td>{this.props.employee.prenom}</td>
+                <td>{this.props.employee.nom}</td>
             </tr>
         );
     }
