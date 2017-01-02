@@ -1,11 +1,12 @@
 Build et exécution :
-lancer ./run.sh
+    lancer ./run.sh
 
 Saisie d'une première personne [TODO à faire en React] :
-curl -X POST -H "Content-Type:application/json" -d '{ "prenom" : "Charles", "nom" : "Fourier" }' http://localhost:8090/api/personnes
+    curl -X POST -H "Content-Type:application/json" -d '{ "prenom" : "Charles", "nom" : "Fourier" }' http://localhost:8090/api/personnes
 
-http://localhost:8080/
-http://localhost:8090/api/personnes
+Requêtes :
+    http://localhost:8080/
+    http://localhost:8090/api/personnes
 
 ********************************************************
 
