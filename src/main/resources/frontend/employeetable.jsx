@@ -14,7 +14,7 @@ export default class EmployeeTable extends React.Component {
 
     /* appelé par componentDidMount : charge les employés en ajax */
     loadEmployeesFromServer() {
-        var self = this;
+        let self = this;
         $.ajax({url: "http://localhost:8090/api/personnes"}).then(function(data) {
             self.setState({employees: data._embedded.personnes});
         });
@@ -26,7 +26,7 @@ export default class EmployeeTable extends React.Component {
     }
 
     render() {
-        var rows = [];
+        let rows = [];
         this.state.employees.forEach(function(employee) {
             rows.push(<Employee employee={employee} key={employee.id}/>);
         });

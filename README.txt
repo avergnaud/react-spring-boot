@@ -1,10 +1,13 @@
+
+Sources React dans src/main/resources/frontend
+
 1. Gestion des paquets node :
 react-spring-boot>npm install
 
 2. Build et exécution :
     lancer ./run.sh
 
-3. Saisie d'une première personne [TODO à faire en React] :
+3. Saisie d'une première personne :
     curl -X POST -H "Content-Type:application/json" -d '{ "prenom" : "Charles", "nom" : "Fourier" }' http://localhost:8090/api/personnes
 
 4. Requêtes :
